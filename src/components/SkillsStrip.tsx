@@ -1,4 +1,4 @@
-const items = ['React', 'Next.js', 'TypeScript', 'Node.js', 'WebSockets', 'AWS', 'PostgreSQL'];
+const items = ['React', 'Next.js', 'TypeScript', 'Node.js', 'CSS', 'AI'];
 
 export default function SkillsStrip() {
   return (

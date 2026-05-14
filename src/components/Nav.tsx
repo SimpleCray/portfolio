@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const links = [
   { id: 'home', label: 'Home' },
@@ -11,6 +11,7 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
+  const sectionsRef = useRef<{ id: string; top: number }[]>([]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -20,37 +21,58 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    const update = () => {
-      const scrollY = window.scrollY;
-      const windowH = window.innerHeight;
-      const docH = document.body.scrollHeight;
+    // Cache absolute positions once (offsetTop walks up to document root)
+    const cacheSections = () => {
+      sectionsRef.current = links
+        .map(({ id }) => {
+          const el = document.getElementById(id);
+          if (!el) return null;
+          // Walk offsetParent chain to get true absolute top
+          let top = 0;
+          let node: HTMLElement | null = el;
+          while (node) {
+            top += node.offsetTop;
+            node = node.offsetParent as HTMLElement | null;
+          }
+          return { id, top };
+        })
+        .filter(Boolean) as { id: string; top: number }[];
+    };
 
-      // Near bottom of page → always activate last section
-      if (scrollY + windowH >= docH - 80) {
+    const spy = () => {
+      const y = window.scrollY;
+      const wh = window.innerHeight;
+      const dh = document.documentElement.scrollHeight;
+
+      // Force-activate contact when near bottom
+      if (y + wh >= dh - 150) {
         setActive('contact');
         return;
       }
 
-      // Find which section's top is closest above the trigger line (30% from top)
-      const triggerY = scrollY + windowH * 0.3;
-      let current = links[0].id;
-
-      for (const { id } of links) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= triggerY) {
-          current = id;
-        }
+      // Section whose top is closest above scrollY + 120px threshold
+      const threshold = y + 120;
+      let cur = links[0].id;
+      for (const s of sectionsRef.current) {
+        if (s.top <= threshold) cur = s.id;
       }
-
-      setActive(current);
+      setActive(cur);
     };
 
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
+    // Cache after layout settles, then start listening
+    const init = () => {
+      cacheSections();
+      spy();
+    };
+
+    const raf = requestAnimationFrame(init);
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('resize', cacheSections, { passive: true });
+
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', spy);
+      window.removeEventListener('resize', cacheSections);
     };
   }, []);
 

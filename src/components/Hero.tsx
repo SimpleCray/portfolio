@@ -1,34 +1,9 @@
-function smoothScrollTo(targetY: number, duration: number) {
-  const startY = window.scrollY;
-  const diff = targetY - startY;
-  let start: number | null = null;
-
-  function step(t: number) {
-    if (!start) start = t;
-    const elapsed = t - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 4);
-    window.scrollTo(0, startY + diff * ease);
-    if (progress < 1) requestAnimationFrame(step);
-  }
-
-  requestAnimationFrame(step);
-}
-
 export default function Hero() {
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const target = document.getElementById('about');
-    if (target) smoothScrollTo(target.offsetTop - 80, 1200);
-  };
-
   return (
     <section className='hero' id='home'>
       <div className='container inner'>
         <div className='hero-l'>
-          <div className='hero-greeting'>
-            Hello<span className='dot'>.</span>
-          </div>
+          <div className='hero-greeting'>Hello</div>
           <div className='hero-sub'>
             <span className='hero-sub-im'>I'm </span>
             <span className='hero-sub-name'>
@@ -66,12 +41,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <a
-        className='hero-scroll-cue'
-        href='#about'
-        aria-label='Scroll to about'
-        onClick={handleScroll}
-      >
+      <a className='hero-scroll-cue' href='#about' aria-label='Scroll to about'>
         About me
       </a>
     </section>

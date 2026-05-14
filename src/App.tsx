@@ -11,6 +11,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const SHOW_COSMIC_OBJECTS = false;
 
@@ -32,6 +33,7 @@ export default function App() {
         <Footer />
       </div>
       <Comets />
+      <ScrollToTop />
     </>
   );
 }
