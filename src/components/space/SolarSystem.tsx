@@ -1,14 +1,14 @@
-import Planet, { type PlanetKind } from './Planet'
+import Planet, { type PlanetKind } from './Planet';
 
 interface PlanetConfig {
-  kind: PlanetKind
-  size: number
-  target: string
-  frac: number
-  side: 'left' | 'right'
-  offset: number
-  scrollSpeed: number
-  opacity: number
+  kind: PlanetKind;
+  size: number;
+  target: string;
+  frac: number;
+  side: 'left' | 'right';
+  offset: number;
+  scrollSpeed: number;
+  opacity: number;
 }
 
 const planets: PlanetConfig[] = [
@@ -92,14 +92,14 @@ const planets: PlanetConfig[] = [
     scrollSpeed: 0.55,
     opacity: 0.92,
   },
-]
+];
 
 export default function SolarSystem() {
   return (
-    <div className="solar-system" aria-hidden="true">
+    <div className='solar-system' aria-hidden='true'>
       {planets.map((p, i) => (
         <Planet key={i} {...p} />
       ))}
     </div>
-  )
+  );
 }

@@ -1,15 +1,15 @@
-import CosmicAnchor from './CosmicAnchor'
-import GalaxySVG from './GalaxySVG'
-import BlackHole from './BlackHole'
-import AsteroidBelt from './AsteroidBelt'
+import CosmicAnchor from './CosmicAnchor';
+import GalaxySVG from './GalaxySVG';
+import BlackHole from './BlackHole';
+import AsteroidBelt from './AsteroidBelt';
 
 export default function CosmicObjects() {
   return (
-    <div className="cosmic-layer" aria-hidden="true">
+    <div className='cosmic-layer' aria-hidden='true'>
       <CosmicAnchor
-        target="#home"
+        target='#home'
         frac={0.15}
-        side="left"
+        side='left'
         offset={-80}
         width={520}
         height={520}
@@ -19,43 +19,43 @@ export default function CosmicObjects() {
       </CosmicAnchor>
 
       <CosmicAnchor
-        target="#about"
+        target='#about'
         frac={0.4}
-        side="right"
+        side='right'
         offset={-200}
         width={900}
         height={700}
         scrollSpeed={0.6}
-        className="nebula violet visible"
+        className='nebula violet visible'
       />
 
       <CosmicAnchor
         target='#work .project[data-i="0"]'
         frac={-0.15}
-        side="center"
+        side='center'
         offset={120}
-        width={900}
+        width={1200}
         height={120}
         scrollSpeed={1.2}
       >
-        <AsteroidBelt width={900} height={120} count={70} />
+        <AsteroidBelt width={1200} height={120} count={70} />
       </CosmicAnchor>
 
       <CosmicAnchor
         target='#work .project[data-i="1"]'
         frac={0.5}
-        side="right"
+        side='right'
         offset={-100}
         width={800}
         height={600}
         scrollSpeed={0.7}
-        className="nebula blue visible"
+        className='nebula blue visible'
       />
 
       <CosmicAnchor
         target='#work .project[data-i="2"]'
         frac={-0.1}
-        side="left"
+        side='left'
         offset={-80}
         width={300}
         height={300}
@@ -67,24 +67,24 @@ export default function CosmicObjects() {
       <CosmicAnchor
         target='#work .project[data-i="3"]'
         frac={0.5}
-        side="left"
+        side='left'
         offset={-200}
         width={900}
         height={700}
         scrollSpeed={0.6}
-        className="nebula pink visible"
+        className='nebula pink visible'
       />
 
       <CosmicAnchor
-        target="#contact"
+        target='#contact'
         frac={0.5}
-        side="left"
+        side='left'
         offset={-300}
         width={1100}
         height={800}
         scrollSpeed={0.5}
-        className="nebula cyan visible"
+        className='nebula cyan visible'
       />
     </div>
-  )
+  );
 }

@@ -1,27 +1,27 @@
 export interface Project {
-  id: string
-  year: string
-  client: string
-  role: string
-  title: string
-  summary: string
-  bullets: string[]
-  stack: string[]
-  metric: string
+  id: string;
+  year: string;
+  client: string;
+  role: string;
+  title: string;
+  summary: string;
+  bullets: string[];
+  stack: string[];
+  metric: string;
 }
 
 export interface CV {
-  name: string
-  nickname: string
-  title: string
-  location: string
-  email: string
-  phone: string
-  linkedin: string
-  github: string
-  yearsStart: number
-  statement: string
-  featured: Project[]
+  name: string;
+  nickname: string;
+  title: string;
+  location: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  github: string;
+  yearsStart: number;
+  statement: string;
+  featured: Project[];
 }
 
 export const cv: CV = {
@@ -113,4 +113,4 @@ export const cv: CV = {
       metric: 'Enterprise scheduling',
     },
   ],
-}
+};
