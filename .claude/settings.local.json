@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\crayo\\\\.claude\\\\projects\" -Recurse | Where-Object { $_.Extension -eq \".jsonl\" } | Measure-Object)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\crayo\\\\.claude\\\\projects\" -Recurse | Where-Object { $_.Extension -eq \".jsonl\" } | Sort-Object LastWriteTime -Descending | Select-Object FullName, LastWriteTime)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\crayo\\\\.claude\\\\projects\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm list *)"
+    ]
+  }
+}
