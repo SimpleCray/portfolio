@@ -8,7 +8,7 @@ export default function Hero() {
             <span className='hero-sub-im'>I'm </span>
             <span className='hero-sub-name'>
               Hai Duong
-              {/* <span className='hero-sub-alias'>(Cray)</span> */}
+              {/* <span className='hero-sub-alias'> - Cray</span> */}
             </span>
           </div>
           <h1 className='hero-title'>

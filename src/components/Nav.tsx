@@ -9,10 +9,12 @@ const links = [
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState('home');
+  const [scrolled, setScrolled] = useState(false); // controls frosted-glass background
+  const [active, setActive] = useState('home'); // which nav link is highlighted
+  // Cached section positions — recalculated on resize, not on every scroll tick
   const sectionsRef = useRef<{ id: string; top: number }[]>([]);
 
+  // Toggle .scrolled class to show backdrop blur after 24px of scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -21,13 +23,22 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    // Cache absolute positions once (offsetTop walks up to document root)
+    /**
+     * Position-based scroll spy — more reliable than IntersectionObserver for
+     * sections near the bottom of the page (IO's rootMargin can't detect those).
+     *
+     * Strategy: walk the offsetParent chain to get each section's true absolute
+     * top. On scroll, find the last section whose top is above (scrollY + 120px).
+     * The 120px threshold fires the highlight slightly before the section reaches
+     * the very top of the viewport.
+     */
     const cacheSections = () => {
       sectionsRef.current = links
         .map(({ id }) => {
           const el = document.getElementById(id);
           if (!el) return null;
-          // Walk offsetParent chain to get true absolute top
+          // el.offsetTop alone is relative to offsetParent (.page div),
+          // so we walk up the chain to get the absolute document position
           let top = 0;
           let node: HTMLElement | null = el;
           while (node) {
@@ -44,13 +55,13 @@ export default function Nav() {
       const wh = window.innerHeight;
       const dh = document.documentElement.scrollHeight;
 
-      // Force-activate contact when near bottom
+      // Contact is the last section — force-activate when near page bottom
+      // because there may not be enough scroll range to hit the threshold normally
       if (y + wh >= dh - 150) {
         setActive('contact');
         return;
       }
 
-      // Section whose top is closest above scrollY + 120px threshold
       const threshold = y + 120;
       let cur = links[0].id;
       for (const s of sectionsRef.current) {
@@ -59,13 +70,13 @@ export default function Nav() {
       setActive(cur);
     };
 
-    // Cache after layout settles, then start listening
-    const init = () => {
+    // requestAnimationFrame ensures the DOM has fully laid out before we
+    // read offsetTop values (avoids stale positions on first render)
+    const raf = requestAnimationFrame(() => {
       cacheSections();
       spy();
-    };
+    });
 
-    const raf = requestAnimationFrame(init);
     window.addEventListener('scroll', spy, { passive: true });
     window.addEventListener('resize', cacheSections, { passive: true });
 
@@ -80,7 +91,7 @@ export default function Nav() {
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className='container inner'>
         <a href='#home' className='brand'>
-          Hai Duong<span className='dot'>.</span>
+          Hai Duong
         </a>
         <div className='links'>
           {links.map((l) => (
