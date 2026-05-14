@@ -7,7 +7,7 @@ export default function Footer() {
         <div className='brand'>
           Hai Duong<span style={{ color: 'var(--accent)' }}>.</span>
         </div>
-        <div className='copy'>Designed &amp; built with care, © 2026</div>
+        <div className='copy'>Designed &amp; built with love, © 2026</div>
         <div className='socials'>
           <a href={`mailto:${cv.email}`} aria-label='Email' data-hover=''>
             <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2'>

@@ -4,6 +4,7 @@ const links = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'work', label: 'Work' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -19,18 +20,38 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    const ids = ['home', 'about', 'work', 'contact'];
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-    if (!els.length) return;
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        }),
-      { rootMargin: '-40% 0px -55% 0px', threshold: 0 },
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const update = () => {
+      const scrollY = window.scrollY;
+      const windowH = window.innerHeight;
+      const docH = document.body.scrollHeight;
+
+      // Near bottom of page → always activate last section
+      if (scrollY + windowH >= docH - 80) {
+        setActive('contact');
+        return;
+      }
+
+      // Find which section's top is closest above the trigger line (30% from top)
+      const triggerY = scrollY + windowH * 0.3;
+      let current = links[0].id;
+
+      for (const { id } of links) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= triggerY) {
+          current = id;
+        }
+      }
+
+      setActive(current);
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   return (

@@ -8,8 +8,11 @@ import Hero from './components/Hero';
 import SkillsStrip from './components/SkillsStrip';
 import About from './components/About';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+const SHOW_COSMIC_OBJECTS = false;
 
 export default function App() {
   return (
@@ -18,12 +21,13 @@ export default function App() {
       <Cursor />
       <Nav />
       <div className='page'>
-        <SolarSystem />
-        <CosmicObjects />
+        {SHOW_COSMIC_OBJECTS && <SolarSystem />}
+        {SHOW_COSMIC_OBJECTS && <CosmicObjects />}
         <Hero />
         <SkillsStrip />
         <About />
         <Projects />
+        <Experience />
         <Contact />
         <Footer />
       </div>

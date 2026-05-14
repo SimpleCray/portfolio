@@ -15,7 +15,7 @@ export default function About() {
             Building <span className='accent'>scalable products</span> that ship.
           </h2>
           <p className={`lead reveal d2${visible ? ' visible' : ''}`}>
-            Based in Saigon. Working with teams worldwide.
+            Based in Ho Chi Minh city. Working with teams worldwide.
           </p>
         </div>
 

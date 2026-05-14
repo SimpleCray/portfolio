@@ -18,14 +18,14 @@ export default function Contact() {
         <div className='contact-l'>
           <div className={`eyebrow reveal${visible ? ' visible' : ''}`}>Contact</div>
           <h2 className={`reveal d1${visible ? ' visible' : ''}`}>
-            Have a project?
+            Wanna work?
             <br />
             Let's <span className='accent'>talk.</span>
           </h2>
-          <p className={`reveal d2${visible ? ' visible' : ''}`}>
+          {/* <p className={`reveal d2${visible ? ' visible' : ''}`}>
             Currently accepting briefs for fullstack contracts, frontend leadership, and real-time
             integration work. Reach out through any channel.
-          </p>
+          </p> */}
         </div>
 
         <div className='contact-methods'>
