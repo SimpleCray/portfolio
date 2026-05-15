@@ -21,32 +21,39 @@ export default function About() {
 
         <div className='about-r'>
           <p className={`reveal d1${visible ? ' visible' : ''}`}>
-            I'm Hai Duong — a Senior Fullstack Engineer with{' '}
-            <span className='yoe-number'>{countYoe}+</span> years of experience architecting
-            real-time platforms, integration systems, and the AI tooling that lets small teams ship
-            like big ones.
+            I'm Cray — a Senior Fullstack Engineer with{' '}
+            <span className='yoe-number'>{countYoe}+</span> years of experience designing and
+            delivering scalable, high-performance web applications across SaaS, AI, and enterprise
+            integration domains.
           </p>
           <p className={`reveal d2${visible ? ' visible' : ''}`}>
-            I started shipping in 2020 and have since led frontend teams, owned architecture
-            decisions, and quietly turned "this is going to be hard" into "this shipped Tuesday" —
-            across remote teams in Australia, Denmark, and Vietnam.
+            Proven track record of owning end-to-end development—from architecture to
+            deployment—across complex systems including real-time platforms, CRM/ERP integrations,
+            and data-intensive applications using React, Next.js, Node.js, and TypeScript.
+            <br /> Experienced leading cross-functional teams and mentoring engineers, driving
+            technical excellence and consistent delivery across multiple projects.
           </p>
 
           <div className='about-pillars'>
             <div className={`about-pillar reveal d3${visible ? ' visible' : ''}`}>
               <div className='n'>01</div>
-              <h4>Real-time systems</h4>
-              <p>WebSocket pipelines, event-driven backends, streaming LLM UI.</p>
+              <h4>Scalable systems design</h4>
+              <p>Architecting distributed platforms for high-throughput, real-time applications.</p>
             </div>
             <div className={`about-pillar reveal d4${visible ? ' visible' : ''}`}>
               <div className='n'>02</div>
-              <h4>Integration architecture</h4>
-              <p>CRM/ERP middleware, OAuth, queue-based processing at multi-tenant scale.</p>
+              <h4>Enterprise integration</h4>
+              <p>
+                Designing high performance and secure middleware across CRM, ERP, and multi-tenant
+                ecosystems.
+              </p>
             </div>
             <div className={`about-pillar reveal d5${visible ? ' visible' : ''}`}>
               <div className='n'>03</div>
-              <h4>Frontend leadership</h4>
-              <p>Architecture patterns, design systems, mentoring teams across products.</p>
+              <h4>Technical leadership</h4>
+              <p>
+                Driving architecture standards, mentoring engineers, enabling predictable delivery.
+              </p>
             </div>
           </div>
         </div>

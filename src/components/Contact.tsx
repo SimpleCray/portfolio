@@ -17,9 +17,8 @@ export default function Contact() {
       <div className='container inner'>
         <div className='contact-l'>
           <div className={`eyebrow reveal${visible ? ' visible' : ''}`}>Contact</div>
-          <h2 className={`reveal d1${visible ? ' visible' : ''}`}>
-            Wanna work?
-            <br />
+          <h3 className={`reveal d1${visible ? ' visible' : ''}`}>Building something ambitious?</h3>
+          <h2 className={`reveal d2${visible ? ' visible' : ''}`}>
             Let's <span className='accent'>talk.</span>
           </h2>
           {/* <p className={`reveal d2${visible ? ' visible' : ''}`}>

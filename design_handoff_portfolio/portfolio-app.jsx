@@ -1,5 +1,5 @@
 /* global React, ReactDOM, CV */
-/* Portfolio app — Hai Duong (Cray) */
+/* Portfolio app — SimpleCray */
 
 const { useState, useEffect, useRef } = React;
 
@@ -96,17 +96,13 @@ function Nav() {
 
   return (
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container inner">
-        <a href="#home" className="brand">
-          Hai Duong<span className="dot">.</span>
+      <div className='container inner'>
+        <a href='#home' className='brand'>
+          SimpleCray<span className='dot'>.</span>
         </a>
-        <div className="links">
-          {links.map(l => (
-            <a
-              key={l.id}
-              href={`#${l.id}`}
-              className={active === l.id ? 'active' : ''}
-            >
+        <div className='links'>
+          {links.map((l) => (
+            <a key={l.id} href={`#${l.id}`} className={active === l.id ? 'active' : ''}>
               {l.label}
             </a>
           ))}
@@ -119,44 +115,48 @@ function Nav() {
 // ────────── Hero ──────────
 function Hero() {
   return (
-    <section className="hero" id="home">
-      <div className="container inner">
-        <div className="hero-l">
-          <div className="hero-greeting">Hello<span className="dot">.</span></div>
-          <div className="hero-sub">I'm Hai Duong</div>
-          <h1 className="hero-title">
-            Senior <span className="accent">Fullstack</span><br/>Engineer
+    <section className='hero' id='home'>
+      <div className='container inner'>
+        <div className='hero-l'>
+          <div className='hero-greeting'>
+            Hello<span className='dot'>.</span>
+          </div>
+          <div className='hero-sub'>I'm SimpleCray</div>
+          <h1 className='hero-title'>
+            Senior <span className='accent'>Fullstack</span>
+            <br />
+            Engineer
           </h1>
-          <div className="hero-ctas">
-            <a className="btn btn-primary" href="#contact" data-hover>
-              Got a project? <span className="arr">→</span>
+          <div className='hero-ctas'>
+            <a className='btn btn-primary' href='#contact' data-hover>
+              Got a project? <span className='arr'>→</span>
             </a>
-            <a className="btn btn-ghost" href="#work" data-hover>
+            <a className='btn btn-ghost' href='#work' data-hover>
               See my work
             </a>
           </div>
         </div>
 
-        <div className="hero-r">
-          <div className="portrait-wrap" data-hover>
-            <div className="portrait-glow"></div>
-            <div className="portrait-ring r3"></div>
-            <div className="portrait-ring r2"></div>
-            <div className="portrait-ring"></div>
-            <span className="portrait-quote l">&lt;</span>
-            <span className="portrait-quote r">&gt;</span>
-            <div className="portrait-frame">
+        <div className='hero-r'>
+          <div className='portrait-wrap' data-hover>
+            <div className='portrait-glow'></div>
+            <div className='portrait-ring r3'></div>
+            <div className='portrait-ring r2'></div>
+            <div className='portrait-ring'></div>
+            <span className='portrait-quote l'>&lt;</span>
+            <span className='portrait-quote r'>&gt;</span>
+            <div className='portrait-frame'>
               <image-slot
-                id="portrait"
-                shape="circle"
-                placeholder="Drop your portrait"
+                id='portrait'
+                shape='circle'
+                placeholder='Drop your portrait'
               ></image-slot>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="hero-scroll-cue">Scroll</div>
+      <div className='hero-scroll-cue'>Scroll</div>
     </section>
   );
 }
@@ -231,45 +231,44 @@ function About() {
   const countYoe = useCounter(yoe, visible, 1200);
 
   return (
-    <section className="section about" id="about" ref={ref}>
-      <div className="container inner">
-        <div className="about-l">
+    <section className='section about' id='about' ref={ref}>
+      <div className='container inner'>
+        <div className='about-l'>
           <div className={`eyebrow reveal ${visible ? 'visible' : ''}`}>About me</div>
           <h2 className={`reveal d1 ${visible ? 'visible' : ''}`}>
-            Building <span className="accent">scalable products</span> that ship.
+            Building <span className='accent'>scalable products</span> that ship.
           </h2>
           <p className={`lead reveal d2 ${visible ? 'visible' : ''}`}>
             Based in Saigon. Working with teams worldwide.
           </p>
         </div>
 
-        <div className="about-r">
+        <div className='about-r'>
           <p className={`reveal d1 ${visible ? 'visible' : ''}`}>
-            I'm Hai Duong — a Senior Fullstack Engineer with{' '}
-            <span className="yoe-number">{countYoe}+</span> years of experience
-            architecting real-time platforms, integration systems, and the AI tooling
-            that lets small teams ship like big ones.
+            I'm SimpleCray — a Senior Fullstack Engineer with{' '}
+            <span className='yoe-number'>{countYoe}+</span> years of experience architecting
+            real-time platforms, integration systems, and the AI tooling that lets small teams ship
+            like big ones.
           </p>
           <p className={`reveal d2 ${visible ? 'visible' : ''}`}>
-            I started shipping in 2020 and have since led frontend teams, owned
-            architecture decisions, and quietly turned “this is going to be hard”
-            into “this shipped Tuesday” — across remote teams in Australia, Denmark,
-            and Vietnam.
+            I started shipping in 2020 and have since led frontend teams, owned architecture
+            decisions, and quietly turned “this is going to be hard” into “this shipped Tuesday” —
+            across remote teams in Australia, Denmark, and Vietnam.
           </p>
 
-          <div className="about-pillars">
+          <div className='about-pillars'>
             <div className={`about-pillar reveal d3 ${visible ? 'visible' : ''}`}>
-              <div className="n">/ 01</div>
+              <div className='n'>/ 01</div>
               <h4>Real-time systems</h4>
               <p>WebSocket pipelines, event-driven backends, streaming LLM UI.</p>
             </div>
             <div className={`about-pillar reveal d4 ${visible ? 'visible' : ''}`}>
-              <div className="n">/ 02</div>
+              <div className='n'>/ 02</div>
               <h4>Integration architecture</h4>
               <p>CRM/ERP middleware, OAuth, queue-based processing at multi-tenant scale.</p>
             </div>
             <div className={`about-pillar reveal d5 ${visible ? 'visible' : ''}`}>
-              <div className="n">/ 03</div>
+              <div className='n'>/ 03</div>
               <h4>Frontend leadership</h4>
               <p>Architecture patterns, design systems, mentoring teams across products.</p>
             </div>
@@ -384,19 +383,28 @@ function Contact() {
 function Footer() {
   const cv = window.CV;
   return (
-    <footer className="footer">
-      <div className="container inner">
-        <div className="brand">Hai Duong<span style={{ color: 'var(--accent)' }}>.</span></div>
-        <div className="copy">Designed & built with care, © 2026</div>
-        <div className="socials">
-          <a href={`mailto:${cv.email}`} aria-label="Email" data-hover>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+    <footer className='footer'>
+      <div className='container inner'>
+        <div className='brand'>
+          SimpleCray<span style={{ color: 'var(--accent)' }}>.</span>
+        </div>
+        <div className='copy'>Designed & built with care, © 2026</div>
+        <div className='socials'>
+          <a href={`mailto:${cv.email}`} aria-label='Email' data-hover>
+            <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2'>
+              <path d='M4 4h16v16H4z' />
+              <path d='M22 6l-10 7L2 6' />
+            </svg>
           </a>
-          <a href={`https://${cv.github}`} aria-label="GitHub" data-hover>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.04c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          <a href={`https://${cv.github}`} aria-label='GitHub' data-hover>
+            <svg viewBox='0 0 24 24' fill='currentColor'>
+              <path d='M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.04c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z' />
+            </svg>
           </a>
-          <a href={`https://${cv.linkedin}`} aria-label="LinkedIn" data-hover>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9.5h3.41v1.5h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.85zM5.34 7.99a2.06 2.06 0 0 1-2.06-2.07c0-1.14.92-2.07 2.06-2.07s2.06.93 2.06 2.07c0 1.14-.92 2.07-2.06 2.07zm1.78 12.46H3.56V9.5h3.56v10.95zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <a href={`https://${cv.linkedin}`} aria-label='LinkedIn' data-hover>
+            <svg viewBox='0 0 24 24' fill='currentColor'>
+              <path d='M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9.5h3.41v1.5h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.85zM5.34 7.99a2.06 2.06 0 0 1-2.06-2.07c0-1.14.92-2.07 2.06-2.07s2.06.93 2.06 2.07c0 1.14-.92 2.07-2.06 2.07zm1.78 12.46H3.56V9.5h3.56v10.95zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z' />
+            </svg>
           </a>
         </div>
       </div>

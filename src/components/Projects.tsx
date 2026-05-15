@@ -1,6 +1,24 @@
 import { useReveal } from '../hooks/useReveal';
 import { cv, type Project } from '../data/cv';
 
+const projectImages: Record<string, string> = {
+  zeligate: '/images/zeligate.png',
+  shade: '/images/shade_system.png',
+  sinch: '/images/sinch_messagemedia.png',
+  aarsleff: '/images/aarsleff.png',
+};
+
+function ProjectMedia({ project }: { project: Project }) {
+  const src = projectImages[project.id];
+  return src ? (
+    <img src={src} alt={project.name} className='project-img' />
+  ) : (
+    <div className='project-img-placeholder'>
+      <span className='project-img-label'>{project.name}</span>
+    </div>
+  );
+}
+
 function ProjectRow({ project, index }: { project: Project; index: number }) {
   const [ref, visible] = useReveal();
   const alt = index % 2 === 1;
@@ -18,9 +36,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
       >
         <span className='frame-corner tl' />
         <span className='frame-corner br' />
-        <div className='project-img-placeholder'>
-          <span className='project-img-label'>{project.name}</span>
-        </div>
+        <ProjectMedia project={project} />
       </div>
 
       <div className={`project-body reveal${alt ? '' : ' d1'}${visible ? ' visible' : ''}`}>
@@ -34,9 +50,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         <div className='project-media project-media-mobile' data-hover=''>
           <span className='frame-corner tl' />
           <span className='frame-corner br' />
-          <div className='project-img-placeholder'>
-            <span className='project-img-label'>{project.name}</span>
-          </div>
+          <ProjectMedia project={project} />
         </div>
 
         <p>{project.summary}</p>
@@ -53,14 +67,6 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             </span>
           ))}
         </div>
-        {/* <div className='project-links'>
-          <a className='project-link primary' href='#' data-hover=''>
-            View case study <span className='arr'>↗</span>
-          </a>
-          <a className='project-link ghost' href='#' data-hover=''>
-            Live demo <span className='arr'>↗</span>
-          </a>
-        </div> */}
       </div>
     </div>
   );

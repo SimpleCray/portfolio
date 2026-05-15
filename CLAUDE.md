@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **design handoff** for Hai Duong's personal portfolio — a single-page app with a dark cosmic theme. The files in `design_handoff_portfolio/` are **prototype references only** (React loaded from CDN, Babel in-browser transpilation, inline `<script type="text/babel">`). They are not production code. The production implementation does not exist yet.
+A **design handoff** for SimpleCray's personal portfolio — a single-page app with a dark cosmic theme. The files in `design_handoff_portfolio/` are **prototype references only** (React loaded from CDN, Babel in-browser transpilation, inline `<script type="text/babel">`). They are not production code. The production implementation does not exist yet.
 
 ## Recommended production stack
 

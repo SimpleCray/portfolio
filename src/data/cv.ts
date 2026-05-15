@@ -37,7 +37,7 @@ export interface CV {
 }
 
 export const cv: CV = {
-  name: 'Hai Duong',
+  name: 'SimpleCray',
   nickname: 'Cray',
   title: 'Senior Fullstack Engineer',
   location: 'Ho Chi Minh City, Vietnam',
@@ -55,19 +55,18 @@ export const cv: CV = {
       year: '2024 — 2026',
       client: 'Zeligate',
       role: 'Frontend Lead',
-      title: 'A ChatGPT-style assistant that actually keeps up',
+      title: 'Real-time AI hiring workflows built for production',
       summary:
-        'Acted as Frontend Lead on an AI-powered hiring platform. Delivered a streaming LLM assistant UI with disciplined state management (Zustand / Jotai, TanStack Query), optimised for long sessions and high-frequency updates. Achieved ~3× smoother rendering by eliminating redundant re-renders during active streams. Built real-time interview rooms combining video, live chat, and assessment flows via Amazon Chime SDK.',
+        'Led frontend architecture for an AI hiring platform. Built a streaming LLM assistant optimized for long-lived sessions and high-frequency state updates, reducing redundant renders and improving stream smoothness by ~3×. Delivered real-time interview experiences with video, live chat, and assessment flows using Amazon Chime SDK.',
       bullets: [
-        'Streaming LLM assistant UI — ~3× smoother than the previous build.',
-        'Real-time interview rooms via Chime SDK + WebRTC patterns.',
-        'WebSocket-driven live updates with heartbeat/reconnect handling.',
-        'Frontend architecture standards and design system adopted team-wide.',
+        'Optimized streaming LLM rendering for ~3× smoother session performance.',
+        'Built real-time interview rooms using Chime SDK and Heygen interactive avatar.',
+        'Defined frontend architecture standards and reusable design systems adopted team-wide.',
       ],
       stack: [
         'React',
+        'Next.js',
         'TypeScript',
-        'Vite',
         'Zustand',
         'TanStack Query',
         'WebSockets',
@@ -81,16 +80,16 @@ export const cv: CV = {
       year: '2025 — 2026',
       client: 'Upstream → Shade Systems',
       role: 'Architect & Fullstack',
-      title: 'The middleware ERP and Monday actually needed',
+      title: 'Real-time ERP synchronization for Monday.com',
       summary:
-        'Architected a scalable middleware platform enabling bidirectional sync between HarmoniQ ERP and Monday.com. Built webhook-driven pipelines with queue-based processing (Bull + Redis / AWS SQS) for reliable real-time propagation. Designed modular entity controllers for customers, suppliers, deals, and invoices — with OAuth 2.0 and a multi-tenant subscription system.',
+        'Architected a middleware platform enabling reliable bidirectional synchronization between HarmoniQ ERP and Monday.com. Designed webhook-driven event pipelines with Bull, Redis, and AWS SQS for fault-tolerant propagation. Built modular entity controllers, OAuth 2.0 authentication flows, and a multi-tenant subscription system for scalable enterprise integrations.',
       bullets: [
         'Bidirectional sync: HarmoniQ ERP ↔ Monday.com.',
         'Webhook pipelines + Bull/Redis queues for reliable propagation.',
         'Modular entity controllers with validation, logging, error handling.',
         'OAuth 2.0 + multi-tenant subscription system.',
       ],
-      stack: ['Node.js', 'Express', 'Bull', 'Redis', 'AWS SQS', 'OAuth 2.0', 'Webhooks'],
+      stack: ['Node.js', 'Express', 'Bull', 'Redis', 'OAuth 2.0', 'Webhooks', 'MySQL', 'Docker'],
       metric: 'Multi-tenant, real-time',
     },
     {
@@ -99,14 +98,13 @@ export const cv: CV = {
       year: '2023 — 2026',
       client: 'Upstream → Monday.com App',
       role: 'Architect & Fullstack',
-      title: 'Two-way SMS, embedded where work already lives',
+      title: 'Real-time messaging embedded directly into workflow',
       summary:
-        'Defined the system architecture and built a full-stack Monday.com app for two-way SMS via Sinch / MessageMedia. Designed a real-time chat UI embedded inside Monday board and item views, with Socket.IO-powered conversation threads, unread states, and delivery status. Backend handles webhooks, BullMQ background jobs, OAuth + JWT auth, and MySQL conversation storage.',
+        'Designed and delivered a full-stack Monday.com application enabling two-way SMS communication via Sinch and MessageMedia. Built a real-time embedded chat experience with conversation threads, delivery states, and unread synchronization. Architected backend messaging workflows using BullMQ, webhooks, OAuth, and MySQL-backed conversation services.',
       bullets: [
-        'Full-stack Monday.com app — board-embedded SMS chat.',
-        'Socket.IO real-time messaging with threads and delivery status.',
-        'BullMQ background processing + webhook handling.',
-        'OAuth + JWT authentication with MySQL (Sequelize) storage.',
+        'Built board-embedded real-time SMS communication inside Monday.com.',
+        'Implemented Socket.IO messaging flows with delivery states and conversation threading.',
+        'Architected background processing and webhook orchestration for reliable message delivery.',
       ],
       stack: ['React', 'TypeScript', 'MUI', 'Socket.IO', 'Node.js', 'BullMQ', 'MySQL'],
       metric: 'Real-time bi-directional',
@@ -117,16 +115,15 @@ export const cv: CV = {
       year: '2021 — 2022',
       client: 'Kodebaze → Aarsleff (Denmark)',
       role: 'Frontend Developer',
-      title: 'Scheduling hundreds of workers, drag-and-drop simple',
+      title: 'Enterprise scheduling for large-scale construction operations',
       summary:
-        'Built a React + Next.js platform for workforce and heavy equipment scheduling at a Danish construction giant. Implemented drag-and-drop job management with DnD Kit, TanStack Query with optimistic updates for near-instant UI response, and calendar-based interfaces handling complex date/fitter/job mappings across large datasets.',
+        'Built a React and Next.js scheduling platform for coordinating workforce and heavy equipment across large construction projects. Delivered drag-and-drop scheduling flows, calendar-based planning interfaces, and optimized state synchronization for responsive interactions across complex operational datasets.',
       bullets: [
-        'Drag-and-drop scheduling with DnD Kit + optimistic updates.',
-        'Calendar UI for complex job × fitter × date mappings.',
-        'TanStack Query caching for large dataset performance.',
-        'Deep Monday.com GraphQL API integration.',
+        'Built drag-and-drop scheduling workflows with responsive optimistic updates.',
+        'Designed calendar interfaces handling complex worker, equipment, and date mappings.',
+        'Optimized frontend performance for large-scale scheduling datasets.',
       ],
-      stack: ['React', 'Next.js', 'TypeScript', 'TanStack Query', 'DnD Kit', 'Framer Motion'],
+      stack: ['React', 'TypeScript', 'TanStack Query', 'DnD Kit', 'Framer Motion'],
       metric: 'Enterprise scheduling',
     },
   ],
@@ -140,7 +137,16 @@ export const cv: CV = {
       period: 'Mar 2024 — Mar 2026',
       blurb:
         'AI-powered hiring platform. Led frontend architecture for a ChatGPT-style streaming assistant, real-time interview rooms via Chime SDK, and a design system adopted team-wide.',
-      stack: ['React', 'TypeScript', 'Vite', 'Zustand', 'TanStack Query', 'WebSockets'],
+      stack: [
+        'React',
+        'TypeScript',
+        'Vite',
+        'Zustand',
+        'TanStack Query',
+        'WebSockets',
+        'MUI',
+        'AWS Chime',
+      ],
     },
     {
       company: 'Upstream',
@@ -150,7 +156,17 @@ export const cv: CV = {
       period: 'Aug 2022 — Apr 2026',
       blurb:
         'Led architecture and delivery for SaaS and integration platforms across CRM/ERP. Built webhook-driven pipelines, OAuth systems, and real-time sync between HarmoniQ ERP and Monday.com.',
-      stack: ['Node.js', 'React', 'TypeScript', 'Bull', 'Redis', 'AWS SQS', 'Socket.IO'],
+      stack: [
+        'Node.js',
+        'React',
+        'TypeScript',
+        'Bull',
+        'Redis',
+        'AWS SQS',
+        'Socket.IO',
+        'MySQL',
+        'TanStack Query',
+      ],
     },
     {
       company: 'Spritely Apps',
@@ -159,8 +175,8 @@ export const cv: CV = {
       location: 'Robina, Australia · Remote',
       period: 'Nov 2022 — Jan 2024',
       blurb:
-        'Built and shipped web apps for advertising and real estate rental sectors — pixel-perfect from Figma, including a Web3 investment platform with wallet connectivity and on-chain interactions.',
-      stack: ['React', 'TypeScript', 'MUI', 'React Query', 'ethers.js'],
+        'Built and shipped production-grade web applications across advertising and real estate platforms, translating complex Figma designs into responsive, scalable user experiences.',
+      stack: ['React', 'TypeScript', 'MUI', 'TanStack Query', 'Redux', 'Jest'],
     },
     {
       company: 'Kodebaze',
@@ -170,7 +186,7 @@ export const cv: CV = {
       period: 'Oct 2021 — Nov 2022',
       blurb:
         'Built construction-management and employee-feedback platforms. Reusable UI systems from scratch, drag-and-drop scheduling for Aarsleff handling hundreds of jobs and fitters.',
-      stack: ['React', 'Next.js', 'Framer Motion', 'DnD Kit'],
+      stack: ['React', 'Next.js', 'Framer Motion', 'DnD Kit', 'Azure - Fluent UI'],
     },
     {
       company: 'Cyberlogitec',
@@ -180,7 +196,7 @@ export const cv: CV = {
       period: 'May 2020 — Sep 2021',
       blurb:
         'React.js SaaS for extracting shipment info from logistics documents. Node.js business logic for specialized shipping rules. First engineering role — shipped to enterprise clients.',
-      stack: ['React', 'Node.js', 'REST APIs'],
+      stack: ['React', 'Node.js', 'REST API', 'PostgreSQL', 'MUI'],
     },
   ],
 };

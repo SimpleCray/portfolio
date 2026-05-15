@@ -1,4 +1,4 @@
-# Handoff: Personal Portfolio — Hai Duong (Cray)
+# Handoff: Personal Portfolio — SimpleCray
 
 A single-page personal portfolio for a Senior Fullstack Engineer. Dark cosmic theme: starfield + solar-system planets that scroll past as the user moves through the page, with galaxy, black hole, asteroid belt, nebulae, and comets layered behind the content.
 
@@ -36,7 +36,7 @@ This is a **single-page application** with smooth-scroll navigation between in-p
 - Flex row, space-between
 
 **Components:**
-- **Brand:** Left side. Text "Hai Duong" (17px, weight 600, letter-spacing -0.015em, color `--fg`) followed by a violet "." (22px, color `--accent`).
+- **Brand:** Left side. Text "SimpleCray" (17px, weight 600, letter-spacing -0.015em, color `--fg`) followed by a violet "." (22px, color `--accent`).
 - **Links:** Right side, flex row, 4px gap. 4 links: Home / About / Work / Contact.
   - Default: 14px, weight 500, color `--fg-muted`, padding 10px 20px
   - Hover: color shifts to `--fg`
@@ -58,7 +58,7 @@ This is a **single-page application** with smooth-scroll navigation between in-p
 
 **Components (left column):**
 1. **Greeting:** "Hello." — 42px, weight 600, letter-spacing -0.025em, color `--fg`. The "." is in `--accent`, sized 50px (overflowing the line via `line-height: 0`).
-2. **Sub:** "I'm Hai Duong" — 22px, color `--fg-muted`, weight 400. Prefixed with a 40px × 1px violet line on the left (positioned absolute, vertically centered).
+2. **Sub:** "I'm SimpleCray" — 22px, color `--fg-muted`, weight 400. Prefixed with a 40px × 1px violet line on the left (positioned absolute, vertically centered).
 3. **Title:** "Senior **Fullstack** Engineer" — 72px, weight 700, letter-spacing -0.035em, line-height 1.05. The word "Fullstack" is in `--accent`. Two lines via `<br/>`.
 4. **CTAs:** Flex row, 14px gap, 36px below title.
    - Primary: "Got a project? →" — filled violet `--accent`, white text, 16/28 padding, 6px radius, weight 500, with arrow that translates 4px on hover. Hover: lifts 2px, deeper violet `--accent-deep`, larger shadow.
@@ -131,7 +131,7 @@ Easing: `cubic-bezier(.2, .7, .2, 1)` throughout (defined as `--ease-out`).
 All three have `text-shadow: 0 0 24px var(--bg), 0 0 12px var(--bg)` for readability over cosmic objects.
 
 **Right column:**
-1. Paragraph 1 (20px, line-height 1.55, `--fg`): "I'm Hai Duong — a Senior Fullstack Engineer with **{YOE}+** years of experience architecting real-time platforms, integration systems, and the AI tooling that lets small teams ship like big ones."
+1. Paragraph 1 (20px, line-height 1.55, `--fg`): "I'm SimpleCray — a Senior Fullstack Engineer with **{YOE}+** years of experience architecting real-time platforms, integration systems, and the AI tooling that lets small teams ship like big ones."
    - **YOE counter**: animates from 0 to `(currentYear - 2020)` over 1.2s with cubic ease-out when section scrolls into view. Wrapped in `<span class="yoe-number">{n}+</span>` (violet, weight 600, tabular-nums).
 2. Paragraph 2 (17px, `--fg-muted`): "I started shipping in 2020 and have since led frontend teams, owned architecture decisions, and quietly turned 'this is going to be hard' into 'this shipped Tuesday' — across remote teams in Australia, Denmark, and Vietnam."
 3. **3 pillars** below, separated by 1px `--rule` top border + 32px padding:
@@ -248,7 +248,7 @@ Reveals staggered `.d1` through `.d5`.
 - Inner: container, flex row, space-between, vertically centered
 
 **Content:**
-- **Brand** (left): "Hai Duong**.**" — 15px, weight 600, letter-spacing -0.01em, "." in `--accent`
+- **Brand** (left): "SimpleCray**.**" — 15px, weight 600, letter-spacing -0.01em, "." in `--accent`
 - **Copy** (center): "Designed & built with care, © 2026" — 12px, `--fg-subtle`
 - **Socials** (right): 3 circular icons (36×36, 1px `--rule-strong` border, 50% radius)
   - Email (envelope SVG, mailto:)

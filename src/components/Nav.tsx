@@ -91,7 +91,7 @@ export default function Nav() {
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className='container inner'>
         <a href='#home' className='brand'>
-          Hai Duong
+          SimpleCray
         </a>
         <div className='links'>
           {links.map((l) => (

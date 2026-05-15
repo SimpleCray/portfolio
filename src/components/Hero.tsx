@@ -5,11 +5,8 @@ export default function Hero() {
         <div className='hero-l'>
           <div className='hero-greeting'>Hello</div>
           <div className='hero-sub'>
-            <span className='hero-sub-im'>I'm </span>
-            <span className='hero-sub-name'>
-              Hai Duong
-              {/* <span className='hero-sub-alias'> - Cray</span> */}
-            </span>
+            <span className='hero-im'>I'm</span>
+            <span className='hero-sub-name'>Cray</span>
           </div>
           <h1 className='hero-title'>
             Senior <span className='accent'>Fullstack</span>
@@ -35,7 +32,7 @@ export default function Hero() {
             {/* <span className='portrait-quote l'>&lt;</span>
             <span className='portrait-quote r'>&gt;</span> */}
             <div className='portrait-frame'>
-              <div className='portrait-placeholder'>Portrait</div>
+              <img src='/images/avatar-vest-black.jpg' alt='Hai Duong' className='portrait-img' />
             </div>
           </div>
         </div>

@@ -57,12 +57,10 @@ export default function Experience() {
             Experience
           </div>
           <h2 className={`reveal d1${visible ? ' visible' : ''}`}>
-            Where I've <span className='accent'>shipped.</span>
+            Built and <span className='accent'>shipped.</span> across domains.
           </h2>
           <p className={`lead reveal d2${visible ? ' visible' : ''}`}>
-            6+ years across AI, SaaS,
-            <br />
-            and enterprise integration.
+            6+ years across AI, SaaS, and enterprise integration.
           </p>
         </div>
 

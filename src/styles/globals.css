@@ -252,9 +252,27 @@ textarea {
   line-height: 0;
 }
 .hero-sub {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25em;
   margin-bottom: 0;
   animation: load-up 1.6s var(--ease-out) 0.4s both;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+  margin-bottom: 20px;
+}
+/* When hero-greeting is used inside hero-sub, it's inline — reset block/flex */
+.hero-sub .hero-im {
+  display: inline;
+  animation: none;
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0;
+  margin-right: 0.25em;
+}
+/* hero-sub-name inside hero-sub stays inline in the flex row */
+.hero-sub .hero-sub-name {
+  display: inline;
 }
 .hero-sub-im {
   display: block;
@@ -272,8 +290,6 @@ textarea {
   letter-spacing: -0.035em;
   line-height: 1;
   padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
   text-shadow: 0 0 40px rgba(var(--accent-rgb), 0.35);
 }
 .hero-sub-alias {
@@ -419,6 +435,13 @@ textarea {
   text-transform: uppercase;
   background: var(--surface);
 }
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
 .portrait-quote {
   position: absolute;
   font-family: var(--font);
@@ -486,8 +509,12 @@ textarea {
 
 /* Marquee: two identical rows → animate -50% = one full cycle */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .skills-track {
   display: flex;
@@ -591,7 +618,6 @@ textarea {
   font-size: 18px;
   line-height: 1.55;
   color: var(--fg-muted);
-  max-width: 380px;
 }
 .about-r p {
   font-size: 20px;
@@ -725,6 +751,19 @@ textarea {
   right: 12px;
   border-left: 0;
   border-top: 0;
+}
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.6s var(--ease-out);
+}
+.project-media:hover .project-img {
+  transform: scale(1.04);
 }
 .project-img-placeholder {
   width: 100%;
@@ -1078,6 +1117,13 @@ textarea {
 }
 .contact h2 .accent {
   color: var(--accent);
+}
+.contact h3 {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--fg);
+  margin-bottom: 8px;
 }
 .contact-l .eyebrow {
   margin-bottom: 24px;

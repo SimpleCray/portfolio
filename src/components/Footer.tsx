@@ -4,9 +4,7 @@ export default function Footer() {
   return (
     <footer className='footer'>
       <div className='container inner'>
-        <div className='brand'>
-          Hai Duong<span style={{ color: 'var(--accent)' }}>.</span>
-        </div>
+        <div className='brand'>SimpleCray</div>
         <div className='copy'>Designed &amp; built with love, © 2026</div>
         <div className='socials'>
           <a href={`mailto:${cv.email}`} aria-label='Email' data-hover=''>
