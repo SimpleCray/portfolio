@@ -34,17 +34,17 @@ export default function About() {
 
           <div className='about-pillars'>
             <div className={`about-pillar reveal d3${visible ? ' visible' : ''}`}>
-              <div className='n'>/ 01</div>
+              <div className='n'>01</div>
               <h4>Real-time systems</h4>
               <p>WebSocket pipelines, event-driven backends, streaming LLM UI.</p>
             </div>
             <div className={`about-pillar reveal d4${visible ? ' visible' : ''}`}>
-              <div className='n'>/ 02</div>
+              <div className='n'>02</div>
               <h4>Integration architecture</h4>
               <p>CRM/ERP middleware, OAuth, queue-based processing at multi-tenant scale.</p>
             </div>
             <div className={`about-pillar reveal d5${visible ? ' visible' : ''}`}>
-              <div className='n'>/ 03</div>
+              <div className='n'>03</div>
               <h4>Frontend leadership</h4>
               <p>Architecture patterns, design systems, mentoring teams across products.</p>
             </div>

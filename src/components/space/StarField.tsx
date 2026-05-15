@@ -28,6 +28,7 @@ export default function StarField() {
     const ctx = canvas.getContext('2d')!;
     let stars: Star[] = [];
     let nebulae: Nebula[] = [];
+    let dpr = Math.min(window.devicePixelRatio || 1, 2); // shared between resize + frame
     let raf = 0;
     let mx = 0,
       my = 0; // normalized mouse position (-1 to 1)
@@ -39,7 +40,7 @@ export default function StarField() {
      * 3× retina displays while still looking sharp on standard retina.
      */
     function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = window.innerWidth;
       const h = window.innerHeight;
       canvas!.width = w * dpr;
@@ -65,12 +66,16 @@ export default function StarField() {
         });
       }
 
-      // Three large soft color blobs drawn behind the stars
-      nebulae = [
-        { x: w * 0.15, y: h * 0.4, r: Math.max(w, h) * 0.55, color: '168,85,247', a: 0.1 },
-        { x: w * 0.85, y: h * 0.7, r: Math.max(w, h) * 0.5, color: '80,140,255', a: 0.08 },
-        { x: w * 0.5, y: h * 0.2, r: Math.max(w, h) * 0.45, color: '236,72,153', a: 0.06 },
-      ];
+      // Skip nebula blobs on mobile — they're too large relative to portrait viewports
+      if (w >= 768) {
+        nebulae = [
+          { x: w * 0.15, y: h * 0.4, r: Math.max(w, h) * 0.55, color: '168,85,247', a: 0.1 },
+          { x: w * 0.85, y: h * 0.7, r: Math.max(w, h) * 0.5, color: '80,140,255', a: 0.08 },
+          { x: w * 0.5, y: h * 0.2, r: Math.max(w, h) * 0.45, color: '236,72,153', a: 0.06 },
+        ];
+      } else {
+        nebulae = [];
+      }
     }
 
     resize();
@@ -102,8 +107,10 @@ export default function StarField() {
      *    - Diffraction cross: drawn on bright big stars (tw > 0.8)
      */
     function frame(t: number) {
-      const w = canvas!.width / (window.devicePixelRatio || 1);
-      const h = canvas!.height / (window.devicePixelRatio || 1);
+      // Use the same capped dpr from resize() — not window.devicePixelRatio directly,
+      // which may be 3× on phones while the canvas was only sized at 2×
+      const w = canvas!.width / dpr;
+      const h = canvas!.height / dpr;
       ctx.clearRect(0, 0, w, h);
 
       // Nebulae — slowest layer, barely moves with scroll

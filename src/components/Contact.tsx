@@ -33,6 +33,8 @@ export default function Contact() {
             <a
               key={m.label}
               href={m.href}
+              target='_blank'
+              rel='noopener noreferrer'
               className={`contact-method reveal d${i + 1}${visible ? ' visible' : ''}`}
               data-hover=''
             >

@@ -475,7 +475,7 @@ textarea {
 
 /* ────── Skills strip ────── */
 .skills-strip {
-  padding: 28px 0;
+  padding: 20px 0;
   border-top: 1px solid var(--rule-strong);
   border-bottom: 1px solid var(--rule-strong);
   background: rgba(13, 15, 23, 0.75);
@@ -483,24 +483,38 @@ textarea {
   -webkit-backdrop-filter: blur(10px);
   overflow: hidden;
 }
-.skills-strip .row {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+
+/* Marquee: two identical rows → animate -50% = one full cycle */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
+.skills-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+.skills-strip:hover .skills-track {
+  animation-play-state: paused;
+}
+.skills-row {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  padding: 0 40px;
+  white-space: nowrap;
+}
+
 .skills-strip .item {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--fg-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  flex-shrink: 0;
   transition:
     color 0.25s,
     text-shadow 0.25s;
-  opacity: 0;
-  animation: load-up 0.6s var(--ease-out) both;
 }
 .skills-strip .item:hover {
   color: var(--accent);
@@ -1440,6 +1454,9 @@ textarea {
 @media (max-width: 768px) {
   :root {
     --gutter: 24px;
+  }
+  .hero-ctas {
+    justify-content: space-around;
   }
   .hero-title,
   .hero-sub-name {

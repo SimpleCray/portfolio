@@ -86,39 +86,38 @@ export default function SpaceshipCursor() {
       if (!hidden) {
         angle = lerpAngle(angle, targetAngle, 0.12);
 
-        // targetThrust = 0 when mouse stops, 1 at max speed (capped 20px/frame)
-        const targetThrust = Math.min(speed / 20, 1);
-        // Rise fast (0.25/frame), decay very slowly (0.015/frame) → ~1s fade-out
-        thrust += (targetThrust > thrust ? 0.25 : 0.015) * (targetThrust - thrust);
-        speed = 0; // reset; only non-zero when a mouse event fires
+        // Cap at 8px/frame so normal movement gives ~0.6 thrust, not just 0.25
+        const targetThrust = Math.min(speed / 8, 1);
+        thrust += (targetThrust > thrust ? 0.3 : 0.015) * (targetThrust - thrust);
+        speed = 0;
 
-        // Nozzle world position (opposite of nose direction)
         const nozzleX = mx - Math.sin(angle) * EXHAUST_OFFSET;
         const nozzleY = my + Math.cos(angle) * EXHAUST_OFFSET;
         const flameDirX = -Math.sin(angle);
         const flameDirY = Math.cos(angle);
 
-        // Emit down to very low thrust so fade-out stays visible the full second
-        if (thrust > 0.005) {
+        if (thrust > 0.01) {
           const t = performance.now();
-          const flicker = 0.55 + 0.45 * Math.abs(Math.sin(t * 0.022 + Math.random() * 0.8));
+          // Flicker only affects visual brightness, not count/size/life
+          const flicker = 0.7 + 0.3 * Math.abs(Math.sin(t * 0.025 + Math.random() * 0.6));
 
-          // ×2 particle count vs previous version
-          const count = Math.ceil(thrust * 12 * flicker);
+          // Count scales with thrust — main control of flame density
+          const count = Math.ceil(thrust * 8);
           for (let i = 0; i < count; i++) {
             const spread = (Math.random() - 0.5) * 0.5;
             const perpX = Math.cos(angle);
             const perpY = Math.sin(angle);
-            // ×2 speed → longer visible trail
-            const spd = (6 + Math.random() * 8) * thrust * flicker;
+            // Speed: fixed base + thrust bonus → trail length grows with speed
+            const spd = (5 + Math.random() * 6) * (0.4 + thrust * 0.6);
             particles.push({
-              x: nozzleX + perpX * spread * 6,
-              y: nozzleY + perpY * spread * 6,
+              x: nozzleX + perpX * spread * 5,
+              y: nozzleY + perpY * spread * 5,
               vx: flameDirX * spd + perpX * spread * 1.5,
               vy: flameDirY * spd + perpY * spread * 1.5,
-              // ×2 initial life + size → brighter, longer-lasting particles
-              life: (0.8 + Math.random() * 0.2) * thrust * flicker,
-              size: (4 + Math.random() * 6) * thrust * flicker,
+              // Life is mostly constant — particles always live ~0.5s regardless of thrust
+              life: (0.8 + Math.random() * 0.2) * flicker,
+              // Size has a minimum so particles are always visible
+              size: 3 + Math.random() * 4 + thrust * (2 + Math.random() * 3),
             });
           }
         }
