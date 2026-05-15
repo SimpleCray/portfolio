@@ -270,7 +270,7 @@ textarea {
   font-weight: 700;
   color: var(--accent);
   letter-spacing: -0.035em;
-  line-height: 1.0;
+  line-height: 1;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
@@ -371,7 +371,7 @@ textarea {
   border: 2px solid var(--accent);
   border-radius: 50%;
   pointer-events: none;
-  animation: ring-draw 1.6s var(--ease-out) 1.0s both;
+  animation: ring-draw 1.6s var(--ease-out) 1s both;
 }
 .portrait-ring.r2 {
   inset: -32px;
@@ -496,7 +496,9 @@ textarea {
   color: var(--fg-muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  transition: color 0.25s, text-shadow 0.25s;
+  transition:
+    color 0.25s,
+    text-shadow 0.25s;
   opacity: 0;
   animation: load-up 0.6s var(--ease-out) both;
 }
@@ -665,7 +667,9 @@ textarea {
   order: 1;
 }
 
-.project-media-mobile { display: none; }
+.project-media-mobile {
+  display: none;
+}
 
 .project-media {
   position: relative;
@@ -898,7 +902,9 @@ textarea {
 .exp-l .eyebrow,
 .exp-l h2,
 .exp-l .lead {
-  text-shadow: 0 0 24px var(--bg), 0 0 12px var(--bg);
+  text-shadow:
+    0 0 24px var(--bg),
+    0 0 12px var(--bg);
 }
 .exp-l .lead {
   font-size: 18px;
@@ -917,7 +923,12 @@ textarea {
   top: 8px;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(to bottom, var(--accent), rgba(var(--accent-rgb), 0.1) 90%, transparent);
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    rgba(var(--accent-rgb), 0.1) 90%,
+    transparent
+  );
 }
 
 .exp-entry {
@@ -938,7 +949,9 @@ textarea {
   border: 2px solid var(--accent);
   background: var(--bg);
   box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
-  transition: background 0.3s, box-shadow 0.3s;
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
 }
 .exp-entry:hover .exp-dot {
   background: var(--accent);
@@ -950,12 +963,17 @@ textarea {
   border: 1px solid var(--rule);
   border-radius: 14px;
   padding: 32px 36px;
-  transition: border-color 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s;
 }
 .exp-entry:hover .exp-card {
   border-color: rgba(var(--accent-rgb), 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(var(--accent-rgb), 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(var(--accent-rgb), 0.1);
 }
 
 .exp-header {
@@ -1015,7 +1033,9 @@ textarea {
   border: 1px solid var(--rule-strong);
   color: var(--fg-subtle);
   letter-spacing: 0.02em;
-  transition: border-color 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
 }
 .exp-entry:hover .exp-tag {
   border-color: rgba(var(--accent-rgb), 0.25);
@@ -1330,57 +1350,143 @@ textarea {
 
 /* 1280px — slightly tighter gutter */
 @media (max-width: 1280px) {
-  :root { --gutter: 56px; }
-  .portrait-wrap { width: 460px; height: 460px; }
-  .portrait-frame { width: 420px; height: 420px; }
-  .hero-title, .hero-sub-name { font-size: 60px; }
+  :root {
+    --gutter: 56px;
+  }
+  .portrait-wrap {
+    width: 460px;
+    height: 460px;
+  }
+  .portrait-frame {
+    width: 420px;
+    height: 420px;
+  }
+  .hero-title,
+  .hero-sub-name {
+    font-size: 60px;
+  }
 }
 
 /* 1024px — collapse to single column, shrink hero text */
 @media (max-width: 1024px) {
-  :root { --gutter: 40px; }
-  .hero .inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-r { order: -1; }
-  .portrait-wrap { width: 360px; height: 360px; }
-  .portrait-frame { width: 320px; height: 320px; }
-  .hero-title, .hero-sub-name { font-size: 52px; }
-  .about .inner { grid-template-columns: 1fr; gap: 56px; }
-  .about-l { position: static; }
-  .contact .inner { grid-template-columns: 1fr; gap: 48px; }
-  .experience .inner { grid-template-columns: 1fr; gap: 48px; }
-  .exp-l { position: static; }
+  :root {
+    --gutter: 40px;
+  }
+  .hero .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hero-r {
+    order: -1;
+  }
+  .portrait-wrap {
+    width: 360px;
+    height: 360px;
+  }
+  .portrait-frame {
+    width: 320px;
+    height: 320px;
+  }
+  .hero-title,
+  .hero-sub-name {
+    font-size: 52px;
+  }
+  .about .inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .about-l {
+    position: static;
+  }
+  .contact .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .experience .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .exp-l {
+    position: static;
+  }
   .project,
-  .project.alt { grid-template-columns: 1fr; gap: 0; margin-bottom: 80px; }
-  .project-media-desktop { display: none !important; }
+  .project.alt {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 80px;
+  }
+  .project-media-desktop {
+    display: none !important;
+  }
   .project-media-mobile {
     display: block;
     aspect-ratio: 16 / 9;
     margin: 16px 0 24px;
     border-radius: 10px;
   }
-  .project.alt .project-media { order: 0; }
-  .project.alt .project-body { order: 0; }
+  .project.alt .project-media {
+    order: 0;
+  }
+  .project.alt .project-body {
+    order: 0;
+  }
   .project-body p,
-  .project-body .project-tagline { max-width: 100%; }
+  .project-body .project-tagline {
+    max-width: 100%;
+  }
 }
 
 /* 768px — mobile */
 @media (max-width: 768px) {
-  :root { --gutter: 24px; }
-  .hero-title, .hero-sub-name { font-size: 44px; }
-  .hero-greeting { font-size: 32px; }
-  .portrait-wrap { width: 280px; height: 280px; }
-  .portrait-frame { width: 250px; height: 250px; }
-  .portrait-quote { font-size: 56px; }
-  .portrait-quote.l { left: -44px; }
-  .portrait-quote.r { right: -44px; }
-  .section h2 { font-size: 40px; }
-  .projects-head h2 { font-size: 48px; }
-  .contact h2 { font-size: 48px; }
-  .project-name { font-size: 30px; }
-  .about-pillars { grid-template-columns: 1fr; }
-  .exp-timeline { padding-left: 20px; }
-  .nav .links a { padding: 8px 12px; font-size: 14px; }
+  :root {
+    --gutter: 24px;
+  }
+  .hero-title,
+  .hero-sub-name {
+    font-size: 44px;
+  }
+  .hero-greeting {
+    font-size: 32px;
+  }
+  .portrait-wrap {
+    width: 280px;
+    height: 280px;
+  }
+  .portrait-frame {
+    width: 250px;
+    height: 250px;
+  }
+  .portrait-quote {
+    font-size: 56px;
+  }
+  .portrait-quote.l {
+    left: -44px;
+  }
+  .portrait-quote.r {
+    right: -44px;
+  }
+  .section h2 {
+    font-size: 40px;
+  }
+  .projects-head h2 {
+    font-size: 48px;
+  }
+  .contact h2 {
+    font-size: 48px;
+  }
+  .project-name {
+    font-size: 30px;
+  }
+  .about-pillars {
+    grid-template-columns: 1fr;
+  }
+  .exp-timeline {
+    padding-left: 20px;
+  }
+  .nav .links a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

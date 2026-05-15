@@ -2,7 +2,7 @@ import StarField from './components/space/StarField';
 import SolarSystem from './components/space/SolarSystem';
 import CosmicObjects from './components/space/CosmicObjects';
 import Comets from './components/space/Comets';
-import Cursor from './components/Cursor';
+import SpaceshipCursor from './components/SpaceshipCursor';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import SkillsStrip from './components/SkillsStrip';
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       <StarField />
-      <Cursor />
+      <SpaceshipCursor />
       <Nav />
       <div className='page'>
         {SHOW_COSMIC_OBJECTS && <SolarSystem />}

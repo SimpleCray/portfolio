@@ -3,4 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  publicDir: 'assets', // serves assets/ folder as root, e.g. /images/spaceship.png
 })

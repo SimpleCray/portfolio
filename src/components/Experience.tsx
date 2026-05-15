@@ -26,7 +26,9 @@ function ExperienceCard({
         </div>
         <div className='exp-meta'>
           <span className='exp-role'>{item.role}</span>
-          <span className='exp-type'>{item.type} · {item.location}</span>
+          <span className='exp-type'>
+            {item.type} · {item.location}
+          </span>
         </div>
         <p className='exp-blurb'>{item.blurb}</p>
         <div className='exp-stack'>
@@ -48,7 +50,10 @@ export default function Experience() {
     <section className='section experience' id='experience'>
       <div className='container inner'>
         <div className='exp-l'>
-          <div className={`eyebrow reveal${visible ? ' visible' : ''}`} ref={ref as React.RefObject<HTMLDivElement>}>
+          <div
+            className={`eyebrow reveal${visible ? ' visible' : ''}`}
+            ref={ref as React.RefObject<HTMLDivElement>}
+          >
             Experience
           </div>
           <h2 className={`reveal d1${visible ? ' visible' : ''}`}>

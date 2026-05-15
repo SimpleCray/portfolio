@@ -32,8 +32,8 @@ export default function Hero() {
             <div className='portrait-ring r3' />
             <div className='portrait-ring r2' />
             <div className='portrait-ring' />
-            <span className='portrait-quote l'>&lt;</span>
-            <span className='portrait-quote r'>&gt;</span>
+            {/* <span className='portrait-quote l'>&lt;</span>
+            <span className='portrait-quote r'>&gt;</span> */}
             <div className='portrait-frame'>
               <div className='portrait-placeholder'>Portrait</div>
             </div>

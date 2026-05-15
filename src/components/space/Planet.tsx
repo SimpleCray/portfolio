@@ -1,6 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
 
-export type PlanetKind = 'earth' | 'moon' | 'mars' | 'jupiter' | 'saturn' | 'uranus' | 'neptune' | 'sun';
+export type PlanetKind =
+  | 'earth'
+  | 'moon'
+  | 'mars'
+  | 'jupiter'
+  | 'saturn'
+  | 'uranus'
+  | 'neptune'
+  | 'sun';
 
 interface Props {
   kind: PlanetKind; // determines CSS gradient recipe (e.g. .planet-earth)
