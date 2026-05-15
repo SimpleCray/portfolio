@@ -1473,7 +1473,14 @@ textarea {
   .project.alt {
     grid-template-columns: 1fr;
     gap: 0;
-    margin-bottom: 80px;
+    margin-bottom: 48px;
+  }
+  .project:last-child,
+  .project.alt:last-child {
+    margin-bottom: 0;
+  }
+  .projects {
+    padding-bottom: 60px;
   }
   .project-media-desktop {
     display: none !important;
@@ -1500,6 +1507,20 @@ textarea {
 @media (max-width: 768px) {
   :root {
     --gutter: 24px;
+  }
+  .nav .brand,
+  .footer .brand {
+    display: none;
+  }
+  .scroll-top {
+    width: 36px;
+    height: 36px;
+    bottom: 20px;
+    right: var(--gutter);
+  }
+  .scroll-top svg {
+    width: 14px;
+    height: 14px;
   }
   .hero-ctas {
     justify-content: space-around;
