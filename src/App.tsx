@@ -12,6 +12,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 const SHOW_COSMIC_OBJECTS = false;
 
@@ -34,6 +35,7 @@ export default function App() {
       </div>
       <Comets />
       <ScrollToTop />
+      <Analytics />
     </>
   );
 }
