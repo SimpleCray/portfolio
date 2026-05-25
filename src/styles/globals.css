@@ -665,6 +665,170 @@ textarea {
   font-variant-numeric: tabular-nums;
 }
 
+/* ────── AI-Augmented Workflow ────── */
+.ai {
+  padding: 60px 0 120px;
+}
+.ai-head {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 72px;
+}
+.ai-head h2 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.ai-underline {
+  width: 4px;
+  height: 32px;
+  background: var(--accent);
+  margin: 28px auto 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 16px var(--accent);
+}
+.ai-lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.ai-card {
+  position: relative;
+  min-width: 0;
+  padding: 40px 36px 36px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(var(--accent-rgb), 0.06), rgba(var(--accent-rgb), 0) 60%),
+    linear-gradient(180deg, var(--bg-elev), var(--surface));
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+.ai-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.22), transparent 60%);
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0.5;
+  transition: opacity 0.5s var(--ease-out);
+  pointer-events: none;
+}
+.ai-card > * {
+  position: relative;
+  z-index: 1;
+}
+.ai-card .frame-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(var(--accent-rgb), 0.55);
+  pointer-events: none;
+  z-index: 2;
+  transition:
+    width 0.4s var(--ease-out),
+    height 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out);
+}
+.ai-card .frame-corner.tl {
+  top: 14px;
+  left: 14px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.ai-card .frame-corner.br {
+  bottom: 14px;
+  right: 14px;
+  border-left: 0;
+  border-top: 0;
+}
+.ai-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(var(--accent-rgb), 0.15);
+}
+.ai-card:hover::before {
+  opacity: 0.9;
+}
+.ai-card:hover .frame-corner {
+  width: 26px;
+  height: 26px;
+  border-color: var(--accent);
+}
+.ai-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.ai-card-idx {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  padding: 4px 8px;
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.ai-card-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.ai-card-value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin-bottom: 22px;
+  min-width: 0;
+}
+.ai-card-num {
+  font-size: 72px;
+}
+.ai-card-suffix {
+  font-size: 40px;
+  font-weight: 600;
+}
+.ai-card-text {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+.ai-card-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  overflow-wrap: anywhere;
+}
+
 /* ────── Projects ────── */
 .projects {
   padding: 60px 0 120px;
@@ -944,9 +1108,15 @@ textarea {
 /* ────── Experience ────── */
 .experience .inner {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 100px;
   align-items: start;
+}
+.exp-timeline {
+  min-width: 0;
+}
+.exp-card {
+  min-width: 0;
 }
 .exp-l {
   position: sticky;
@@ -1031,10 +1201,11 @@ textarea {
 
 .exp-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 6px;
-  gap: 16px;
+  gap: 8px 16px;
 }
 .exp-company {
   font-size: 24px;
@@ -1072,6 +1243,10 @@ textarea {
   line-height: 1.65;
   color: var(--fg-muted);
   margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+.exp-company {
+  overflow-wrap: anywhere;
 }
 .exp-stack {
   display: flex;
@@ -1458,6 +1633,15 @@ textarea {
   .about-l {
     position: static;
   }
+  .ai-head h2 {
+    font-size: 52px;
+  }
+  .ai-grid {
+    gap: 20px;
+  }
+  .ai-card {
+    padding: 32px 28px 28px;
+  }
   .contact .inner {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -1564,8 +1748,42 @@ textarea {
   .about-pillars {
     grid-template-columns: 1fr;
   }
+  .ai-head h2 {
+    font-size: 40px;
+  }
+  .ai-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .ai-card {
+    padding: 28px 22px 24px;
+  }
+  .ai-card-num {
+    font-size: 48px;
+  }
+  .ai-card-suffix {
+    font-size: 28px;
+  }
+  .ai-card-text {
+    font-size: 28px;
+  }
+  .ai-card-head {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
   .exp-timeline {
     padding-left: 20px;
+  }
+  .exp-card {
+    padding: 24px 20px;
+  }
+  .exp-dot {
+    left: -20px;
+    width: 12px;
+    height: 12px;
+  }
+  .exp-company {
+    font-size: 20px;
   }
   .nav .links a {
     padding: 8px 12px;
