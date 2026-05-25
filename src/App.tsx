@@ -14,6 +14,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const SHOW_COSMIC_OBJECTS = false;
 
@@ -38,6 +39,7 @@ export default function App() {
       <Comets />
       <ScrollToTop />
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
