@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useEffect } from 'react';
 
 // Ship image: nose points UP, exhaust nozzle ~22% below center

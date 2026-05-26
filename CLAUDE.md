@@ -4,11 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **design handoff** for SimpleCray's personal portfolio — a single-page app with a dark cosmic theme. The files in `design_handoff_portfolio/` are **prototype references only** (React loaded from CDN, Babel in-browser transpilation, inline `<script type="text/babel">`). They are not production code. The production implementation does not exist yet.
+SimpleCray's personal portfolio — a single-page app with a dark cosmic theme. The files in `design_handoff_portfolio/` are the **original prototype references** (React loaded from CDN, Babel in-browser transpilation, inline `<script type="text/babel">`). The production app lives in `src/` and is built with **Next.js (App Router) + React 19 + TypeScript**.
 
-## Recommended production stack
+## Production stack
 
-**React + Vite + TypeScript** — the closest match to the prototype. Use CSS Modules or Tailwind for styling. No routing needed (single page, smooth-scroll only).
+**Next.js App Router + React 19 + TypeScript.** Single static page (SSG) — `next build` prerenders `/` as static HTML. Routing not used (smooth-scroll only).
+
+- `src/app/layout.tsx` — root layout: `<html>`/`<body>`, `metadata` (title/description/favicon), `viewport`, imports `globals.css`, mounts Vercel `Analytics` + `SpeedInsights`.
+- `src/app/page.tsx` — page composition (was `App.tsx`). Server component that renders the section tree.
+- Interactive components carry `'use client'` (canvas, custom cursor, scroll listeners, `IntersectionObserver`, scroll-spy nav, counters). Static text sections (`Hero`, `SkillsStrip`, `Footer`) stay server components and are prerendered.
+- Static assets live in `public/` and are served from root (e.g. `public/images/spaceship.png` → `/images/spaceship.png`).
+- Commands: `npm run dev` (dev server), `npm run build` (prod build), `npm run start` (serve build), `npm run lint` (`next lint`).
+
+**Known follow-up:** `Hero` and `Projects` use raw `<img>` — `next lint` warns to switch to `next/image` for automatic optimization (real LCP/bandwidth win). Deferred because the cosmic/absolute layouts need width/height or `fill` tuning.
 
 ## Design reference files
 

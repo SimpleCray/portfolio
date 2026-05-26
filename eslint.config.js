@@ -1,26 +1,23 @@
-import js from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import prettierConfig from 'eslint-config-prettier'
-import prettier from 'eslint-plugin-prettier'
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import prettierConfig from 'eslint-config-prettier';
+import prettier from 'eslint-plugin-prettier';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({ baseDirectory: __dirname });
+
+export default [
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      prettier,
-    },
+    plugins: { prettier },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'react/no-unescaped-entities': 'off',
       'prettier/prettier': 'error',
     },
   },
-  prettierConfig
-)
+  prettierConfig,
+];

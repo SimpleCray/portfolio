@@ -1,3 +1,5 @@
+'use client';
+
 import { useReveal } from '../hooks/useReveal';
 import { cv, type Experience as ExperienceItem } from '../data/cv';
 
