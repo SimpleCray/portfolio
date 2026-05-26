@@ -44,6 +44,12 @@ export default function SpaceshipCursor() {
     let thrust = 0; // smoothed 0–1, drives ALL flame properties
     let hidden = true;
 
+    // Accumulate movement and only recompute heading once it crosses this
+    // distance, so tiny jittery moves don't flip the angle every event.
+    const ANGLE_UPDATE_DIST = 6;
+    let accDx = 0;
+    let accDy = 0;
+
     const particles: Particle[] = [];
 
     let shipImg: HTMLImageElement | null = null;
@@ -61,9 +67,16 @@ export default function SpaceshipCursor() {
       hidden = false;
 
       speed = Math.sqrt(dx * dx + dy * dy);
-      if (speed > 0.8) {
+
+      // Accumulate raw deltas; the summed vector is a far more stable heading
+      // than any single tiny event. Only rotate once it's a real move.
+      accDx += dx;
+      accDy += dy;
+      if (accDx * accDx + accDy * accDy > ANGLE_UPDATE_DIST * ANGLE_UPDATE_DIST) {
         // atan2 + π/2 converts movement vector to ship-space angle (nose = up)
-        targetAngle = Math.atan2(dy, dx) + Math.PI / 2;
+        targetAngle = Math.atan2(accDy, accDx) + Math.PI / 2;
+        accDx = 0;
+        accDy = 0;
       }
     };
 
@@ -84,7 +97,7 @@ export default function SpaceshipCursor() {
       ctx.clearRect(0, 0, canvas!.width, canvas!.height);
 
       if (!hidden) {
-        angle = lerpAngle(angle, targetAngle, 0.12);
+        angle = lerpAngle(angle, targetAngle, 0.1);
 
         // Cap at 8px/frame so normal movement gives ~0.6 thrust, not just 0.25
         const targetThrust = Math.min(speed / 8, 1);
